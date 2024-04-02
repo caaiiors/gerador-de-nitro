@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Nitro (NAO FUNCIONAL)</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function gerarNitro(tamanho) {
+            let caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let nitro = '';
+
+            for (let i = 0; i < tamanho; i++) {
+                let indice = Math.floor(Math.random() * caracteres.length);
+                nitro += caracteres.charAt(indice);
+            }
+
+            return nitro;
+        }
+
+        function gerarNitros() {
+            let quantidadeNitros = parseInt(document.getElementById("quantidadeNitros").value);
+            let tamanhoMaximo = 16;
+            let resultado = '';
+            let quantidadePorLinha = 1
+
+            for (let j = 0; j < quantidadeNitros; j++) {
+                let nitroGerado = gerarNitro(tamanhoMaximo);
+                resultado += "https://discord.gift/" + (j + 1) + nitroGerado;
+
+                // adicionar quebra de linha apos cada quantidadePorLinha
+                if  ((j + 1) % quantidadePorLinha == 0){
+                    resultado += "\n";
+            }
+        }
+
+        // criar um blob com o conteudo do arquivo de texto
+        let blob = new Blob([resultado], {type:"text/plain"})
+
+        // criar um url temporario para o blob
+        let url = window.URL.createObjectURL(blob)
+
+            // criar um elemento de link de download
+    let linkDownload = document.createElement("a")
+    linkDownload.href = url;
+    linkDownload.download = "codigos_nitro.txt"
+
+
+    // clicar no link de download
+    linkDownload.click()
+
+    // limpar o url temporario
+    window.URL.revokeObjectURL(url)
+        }
+    </script>
+</head>
+<body>
+    <div id="gerador">
+    <h1>Gerador de Nitro (NAO FUNCIONAL)</h1>
+    <p>Esse codigo apenas gera codigos com maiusculas, minusculas e numeros, a chance de voce conseguir achar um discord nitro e de 1 em 10,000,000,000+.</p>
+    <div id="gerador1">
+    <label for="quantidadeNitros">Quantidade de códigos a serem gerados:</label>
+    <input type="number" id="quantidadeNitros">
+    <button onclick="gerarNitros()">Gerar nitros</button>
+    <div id="resultado"></div>
+</div>
+</div>
+</body>
+</html>

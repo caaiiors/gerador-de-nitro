@@ -1,0 +1,75 @@
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #db7d7d, #93c226);
+  font-family: Arial, Helvetica, sans-serif;
+  font-display: swap;
+  background-attachment: fixed;
+}
+
+.quadrado {
+  width: 260px;
+  padding: 20px;
+}
+
+
+#gerador {
+  backdrop-filter: blur(5.5px);
+  -webkit-backdrop-filter: blur(5.5px);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.01);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+  color: #232323;
+  font-size: 20px;
+  overflow: auto;
+  padding: 12px;
+  text-align: right;
+  width: 400px;
+  transition: transform 0.3s ease;
+}
+
+
+.buttons {
+  padding:  8px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+button {
+  padding: 4px;
+  font-size: 16px;
+  background-color: black;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+button:hover {
+  transform: scale(1.1);
+}
+
+p {
+  text-align: center;
+  font-size: 18px;
+}
+#gerador1 {
+  text-align: center;
+}
+h1 {
+  text-align: center;
+  font-size: 30px;
+}
